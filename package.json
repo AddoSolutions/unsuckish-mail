@@ -1,0 +1,29 @@
+{
+  "name": "unsuckish-mail",
+  "version": "1.0.0",
+  "description": "A mail server written within the last 1000 years",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nick Artman",
+  "license": "ISC",
+  "dependencies": {
+    "async": "",
+    "bcrypt-nodejs": "0.0.3",
+    "email-addresses": "^2.0.2",
+    "faker": "^3.1.0",
+    "imap-handler": "^0.1.12",
+    "imapseagull": "^1.0.3",
+    "mailcomposer": "~0.2.8",
+    "mailparser": "^0.6.0",
+    "mongojs": ">=0.11.0",
+    "mongoose": "^4.5.0",
+    "node-uuid": "^1.4.7",
+    "nodemailer": "^2.4.2",
+    "smtp-server": "^1.9.1",
+    "stream-to-string": "^1.0.1",
+    "tmp": "",
+    "xtend": ">=2.2.0"
+  }
+}
