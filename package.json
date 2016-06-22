@@ -11,7 +11,6 @@
   "author": "Nick Artman",
   "license": "ISC",
   "dependencies": {
-    "AddoSolutions/imapseagull": "^1.0.3",
     "async": "^2.0.0-rc.6",
     "babel": "^6.5.2",
     "babel-core": "^6.9.1",
@@ -26,6 +25,7 @@
     "grunt-eslint": "^18.1.0",
     "grunt-mocha-test": "^0.12.7",
     "imap-handler": "latest",
+    "imapseagull": "addosolutions/imapseagull",
     "mailcomposer": "~0.2.8",
     "mailparser": "^0.6.0",
     "mocha": "^2.5.3",
