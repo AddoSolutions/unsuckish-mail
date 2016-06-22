@@ -1,0 +1,78 @@
+{
+  "hostname": "xmail-server",
+  "plugins":{
+
+  },
+  "ssl": {
+    "key":"local/ssl/ca.crt",
+    "cert":"local/ssl/ca.crt"
+  },
+
+  "services":{
+    "imap":{
+
+      "port": {
+        "insecure": 9143,
+        "secure": 9993
+      },
+
+      "plugins": [
+        "ID", "STARTTLS", "AUTH-PLAIN", "SPECIAL-USE", "NAMESPACE", "IDLE",
+        "SASL-IR", "ENABLE", "LITERALPLUS", "UNSELECT", "CONDSTORE"
+      ],
+
+      "folders": {
+        "INBOX": {
+          "special-use": "\\Inbox",
+          "type": "personal"
+        },
+        "": {
+          "folders": {
+            "Drafts": {
+              "special-use": "\\Drafts",
+              "type": "personal"
+            },
+            "Sent": {
+              "special-use": "\\Sent",
+              "type": "personal"
+            },
+            "Junk": {
+              "special-use": "\\Junk",
+              "type": "personal"
+            },
+            "Trash": {
+              "special-use": "\\Trash",
+              "type": "personal"
+            },
+            "Notes": {
+              "special-use": "\\Notes",
+              "type": "personal"
+            }
+          }
+        }
+      }
+    },
+
+
+    "smtp":{
+
+      "port": {
+        "insecure": 9025,
+        "secure": 465
+      }
+
+
+    },
+
+    "data":{
+      "connection": "mongodb://localhost",
+      "collections":{
+        "user": "users",
+        "email": "emails",
+        "note": "notes"
+      }
+    }
+
+
+  }
+}
