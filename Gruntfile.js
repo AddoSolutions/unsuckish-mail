@@ -14,7 +14,7 @@ module.exports = function (grunt) {
 					reporter: 'spec',
 					require: 'babel-register'
 				},
-				src: ['test/*-test.js'],
+				src: ['test/**/*-test.js'],
 			}
 		}
 	});

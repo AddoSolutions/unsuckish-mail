@@ -20,13 +20,14 @@
     "chai": "^3.5.0",
     "deep-extend": "^0.4.1",
     "email-addresses": "^2.0.2",
+    "extend": "^3.0.0",
     "faker": "^3.1.0",
     "grunt": "^1.0.1",
     "grunt-eslint": "^18.1.0",
     "grunt-mocha-test": "^0.12.7",
     "imap-handler": "latest",
     "imapseagull": "addosolutions/imapseagull",
-    "mailcomposer": "~0.2.8",
+    "mailcomposer": "3.9.0",
     "mailparser": "^0.6.0",
     "mocha": "^2.5.3",
     "mongojs": ">=0.11.0",
@@ -38,7 +39,11 @@
     "require-glob": "^3.1.1",
     "smtp-server": "^1.9.1",
     "stream-to-string": "^1.0.1",
+    "striptags": "^2.1.1",
     "tmp": "",
     "xtend": ">=2.2.0"
+  },
+  "devDependencies": {
+    "through": "^2.3.8"
   }
 }
