@@ -8,6 +8,8 @@
     "start": "babel-node lib/start.js --presets es2015",
     "create": "lib/create.js"
   },
+
+  "repository": "git@github.com:AddoSolutions/unsuckish-mail.git",
   "author": "Nick Artman",
   "license": "ISC",
   "dependencies": {

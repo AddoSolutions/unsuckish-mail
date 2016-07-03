@@ -7,6 +7,7 @@ import chai from 'chai';
 import Email from '../../lib/models/Email';
 import streamToString from 'stream-to-string'
 import through from 'through';
+import fs from 'fs';
 
 var expect = chai.expect;
 
@@ -77,6 +78,45 @@ describe('Email Parsing', function () {
 			}
 
 			done();
+
+		});
+	})
+
+	it('should parse and reassemble attachments', (done) => {
+
+
+		Email.fromRawEmail(emailExamples[1],(err, email) => {
+			try {
+				expect(err).to.not.exist;
+				expect(email.attachments[0].contentType).to.equal("text/plain");
+				expect(fs.existsSync(Email._getAttachmentsPath() + "/" + email.attachments[0].fileId)).to.be.true;
+
+				email.toRawEmail((err, raw) => {
+					try {
+
+						raw = raw.toString();
+
+						expect(raw).to.contain("name=hello.txt");
+						expect(raw).to.contain("955cceb604f12b23_0.1");
+						expect(raw).to.contain("Test");
+						expect(raw).to.contain("Content-Disposition: attachment");
+						expect(raw).to.contain("Content-Type: text/plain");
+
+						done();
+
+					}catch(e){
+						done(e);
+						return;
+
+					}
+				})
+
+			}catch(e){
+				done(e);
+				return;
+			}
+
+			
 
 		});
 	})

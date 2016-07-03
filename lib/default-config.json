@@ -8,6 +8,10 @@
     "cert":"local/ssl/ca.crt"
   },
 
+  "attachments":{
+    "path": "local/attachments"
+  },
+
   "services":{
     "imap":{
 
