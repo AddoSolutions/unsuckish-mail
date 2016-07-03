@@ -15,6 +15,13 @@ chai.config.includeStack = true;
 
 var emailExamples = [];
 
+
+
+// Ensure attachments path exists
+if (!fs.existsSync("local")){
+	fs.mkdirSync("local");
+}
+
 describe('Email Parsing', function () {
 
 
@@ -70,7 +77,11 @@ describe('Email Parsing', function () {
 		Email.fromRawEmail(emailExamples[1],(err, email) => {
 
 			try {
+
+				// @TODO: Create attachment class with all this built in
 				var attachmentPath = Email._getAttachmentsPath() + "/" + email.attachments[0].fileId;
+
+
 				expect(err).to.not.exist;
 				expect(email.attachments[0].contentType).to.equal("text/plain");
 
