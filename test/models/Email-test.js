@@ -68,16 +68,21 @@ describe('Email Parsing', function () {
 
 
 		Email.fromRawEmail(emailExamples[1],(err, email) => {
+
 			try {
+				var attachmentPath = Email._getAttachmentsPath() + "/" + email.attachments[0].fileId;
 				expect(err).to.not.exist;
 				expect(email.attachments[0].contentType).to.equal("text/plain");
 
+				fs.unlink(attachmentPath);
 			}catch(e){
 				done(e);
 				return;
 			}
 
 			done();
+
+
 
 		});
 	})
@@ -87,9 +92,10 @@ describe('Email Parsing', function () {
 
 		Email.fromRawEmail(emailExamples[1],(err, email) => {
 			try {
+				var attachmentPath = Email._getAttachmentsPath() + "/" + email.attachments[0].fileId;
 				expect(err).to.not.exist;
 				expect(email.attachments[0].contentType).to.equal("text/plain");
-				expect(fs.existsSync(Email._getAttachmentsPath() + "/" + email.attachments[0].fileId)).to.be.true;
+				expect(fs.existsSync(attachmentPath)).to.be.true;
 
 				email.toRawEmail((err, raw) => {
 					try {
@@ -109,6 +115,8 @@ describe('Email Parsing', function () {
 						return;
 
 					}
+
+					fs.unlink(attachmentPath);
 				})
 
 			}catch(e){
@@ -116,7 +124,7 @@ describe('Email Parsing', function () {
 				return;
 			}
 
-			
+
 
 		});
 	})
